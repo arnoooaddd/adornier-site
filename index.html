@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" />
+    <title>Adornier | Startup Fundraising. Simplified.</title>
+    <meta name="description" content="Adornier helps startups from pre-seed to Series A raise capital. Based in Florida, we work globally with founders to build their fundraising strategy, structure their company, and secure investment." />
+    <meta name="theme-color" content="#01214b" />
+    <link rel="icon" type="image/png" href="https://storage.googleapis.com/msgsndr/6T9QbKNEAN2JcTQX3ScY/media/6822fc4375cc46312a574104.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --blue: #01214b;
+        --blue-dark: #00112a;
+        --blue-darker: #00102A;
+        --white: #f7f8fa;
+        --yellow: #ffd966;
+        --yellow-strong: #ffb200;
+        --text: #01214b;
+        --muted: #b3b8c5;
+        --card-bg: #f7f8fa;
+        --border: #e5e7ef;
+        --radius: 18px;
+        --shadow: 0 4px 32px 0 rgba(1,33,75,0.10);
+        --max-width: 1200px;
+        --footer-bg: #00112a;
+        --footer-border: #22345a;
+        --gradient: linear-gradient(90deg, #01214b 0%, #ffd966 100%);
+        --gradient-soft: linear-gradient(135deg, #f7f8fa 0%, #e5e7ef 100%);
+        --cta-blue: #0074D4;
+        --cta-blue-hover: #005fa3;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: 'Montserrat', Arial, sans-serif;
+        background: #fff;
+        color: var(--text);
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        font-size: 18px;
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+      header {
+        width: 100%;
+        background: var(--blue-dark);
+        position: sticky;
+        top: 0;
+        z-index: 30;
+        border-bottom: 1px solid var(--border);
+        box-shadow: 0 2px 16px 0 rgba(1,33,75,0.10);
+        transition: background 0.3s;
+      }
+      .nav {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.1rem 1.2rem;
+      }
+      .logo {
+        font-family: 'Poppins', Arial, sans-serif;
+        font-weight: 700;
+        font-size: 2rem;
+        letter-spacing: 0.01em;
+        color: var(--yellow);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        filter: drop-shadow(0 2px 8px #01214b33);
+        transition: filter 0.3s;
+      }
+      nav {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+      }
+      nav a {
+        color: var(--white);
+        text-decoration: none;
+        font-family: 'Montserrat', Arial, sans-serif;
+        font-weight: 500;
+        font-size: 1.08rem;
+        padding: 0.5rem 1.1rem;
+        border-radius: 8px;
+        transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+        position: relative;
+        overflow: hidden;
+      }
+      nav a::after {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 0;
+        height: 2px;
+        background: var(--yellow);
+        transition: width 0.3s, left 0.3s;
+      }
+      nav a:hover::after, nav a:focus::after {
+        width: 80%;
+        left: 10%;
+      }
+      nav a:hover, nav a:focus {
+        background: var(--yellow);
+        color: var(--blue);
+        outline: none;
+        box-shadow: 0 2px 16px 0 #ffd96633;
+      }
+
+      /* CONTRASTED BUTTONS */
+      .cta-btn, .contact-btn {
+        font-family: 'Poppins', Arial, sans-serif;
+        font-weight: 700;
+        border-radius: 12px;
+        font-size: 1.1rem;
+        padding: 1rem 2.3rem;
+        cursor: pointer;
+        box-shadow: 0 4px 24px 0 rgba(1,33,75,0.10);
+        transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s, border 0.2s;
+        margin-right: 1rem;
+        border: none;
+        outline: none;
+      }
+      .cta-btn, .contact-btn {
+        /* Will be overridden by context below */
+      }
+      .hero .cta-btn,
+      .hero .contact-btn,
+      .section-modern .cta-btn,
+      .section-modern .contact-btn,
+      .card-modern .cta-btn,
+      .card-modern .contact-btn,
+      .contact-modern-section .cta-btn,
+      .contact-modern-section .contact-btn {
+        background: var(--cta-blue);
+        color: #fff;
+        border: 2px solid var(--cta-blue);
+      }
+      .hero .cta-btn:hover, .hero .cta-btn:focus,
+      .section-modern .cta-btn:hover, .section-modern .cta-btn:focus,
+      .card-modern .cta-btn:hover, .card-modern .cta-btn:focus,
+      .contact-modern-section .cta-btn:hover, .contact-modern-section .cta-btn:focus {
+        background: var(--cta-blue-hover);
+        color: #fff;
+        transform: translateY(-2px) scale(1.04);
+        box-shadow: 0 8px 32px 0 #0074d433;
+        border-color: var(--cta-blue-hover);
+      }
+      .hero .contact-btn,
+      .section-modern .contact-btn,
+      .card-modern .contact-btn,
+      .contact-modern-section .contact-btn {
+        background: transparent;
+        color: var(--cta-blue);
+        border: 2px solid var(--cta-blue);
+        margin-right: 0;
+      }
+      .hero .contact-btn:hover, .hero .contact-btn:focus,
+      .section-modern .contact-btn:hover, .section-modern .contact-btn:focus,
+      .card-modern .contact-btn:hover, .card-modern .contact-btn:focus,
+      .contact-modern-section .contact-btn:hover, .contact-modern-section .contact-btn:focus {
+        background: var(--cta-blue);
+        color: #fff;
+        border-color: var(--cta-blue);
+        transform: translateY(-2px) scale(1.04);
+      }
+      /* On dark background: yellow buttons */
+      footer .cta-btn,
+      footer .contact-btn,
+      .footer-links .cta-btn,
+      .footer-links .contact-btn,
+      .typeform-top .cta-btn,
+      .typeform-top .contact-btn {
+        background: var(--yellow);
+        color: var(--blue);
+        border: 2px solid var(--yellow);
+      }
+      footer .cta-btn:hover, footer .cta-btn:focus,
+      .footer-links .cta-btn:hover, .footer-links .cta-btn:focus,
+      .typeform-top .cta-btn:hover, .typeform-top .cta-btn:focus {
+        background: #ffe58f;
+        color: var(--blue);
+        border-color: #ffe58f;
+        transform: translateY(-2px) scale(1.04);
+        box-shadow: 0 8px 32px 0 #ffd96633;
+      }
+      footer .contact-btn,
+      .footer-links .contact-btn,
+      .typeform-top .contact-btn {
+        background: transparent;
+        color: var(--yellow);
+        border: 2px solid var(--yellow);
+      }
+      footer .contact-btn:hover, .footer-links .contact-btn:hover, .typeform-top .contact-btn:hover,
+      footer .contact-btn:focus, .footer-links .contact-btn:focus, .typeform-top .contact-btn:focus {
+        background: var(--yellow);
+        color: var(--blue);
+        border-color: var(--yellow);
+        transform: translateY(-2px) scale(1.04);
+      }
+
+      /* KEY NUMBERS (yellow on white: more contrast) */
+      .track-metric-modern,
+      .team-title-modern,
+      .process-step-number {
+        color: var(--blue) !important;
+        text-shadow: none !important;
+      }
+      .track-metric-modern {
+        font-size: 1.35rem;
+        font-weight: 800;
+        letter-spacing: 0.01em;
+      }
+      .process-step-number {
+        background: var(--yellow-strong);
+        color: var(--blue) !important;
+        border: 2.5px solid #fffbe6;
+        box-shadow: 0 2px 8px 0 #ffd96633;
+        text-shadow: none !important;
+      }
+      .team-title-modern {
+        font-size: 1.05rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: var(--blue) !important;
+        text-shadow: none !important;
+      }
+      .contact-info-modern a {
+        font-weight: 700;
+        text-decoration: underline;
+        color: #0074D4 !important;
+        text-shadow: none !important;
+      }
+      /* --- MODIFIED: PROCESS STEP DURATION --- */
+      .process-step-duration {
+        font-size: 1.01rem;
+        color: var(--blue) !important;
+        font-weight: 600;
+        margin-left: 0;
+        margin-top: 0.3em;
+        display: block;
+        text-shadow: none !important;
+        background: none;
+      }
+
+      main {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        background: #fff;
+      }
+      /* HERO */
+      .hero {
+        width: 100%;
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #fff;
+        position: relative;
+        overflow: hidden;
+        padding: 6rem 1.2rem 4rem 1.2rem;
+        box-sizing: border-box;
+      }
+      .hero-bg-blur {
+        position: absolute;
+        top: -120px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 900px;
+        height: 400px;
+        background: radial-gradient(ellipse at center, #01214b33 0%, #ffd96611 100%);
+        filter: blur(80px);
+        z-index: 0;
+        pointer-events: none;
+        opacity: 0.7;
+        animation: heroBlurIn 1.2s cubic-bezier(.4,0,.2,1) 0.2s both;
+      }
+      @keyframes heroBlurIn {
+        0% { opacity: 0; transform: translateX(-50%) scale(0.95);}
+        100% { opacity: 0.7; transform: translateX(-50%) scale(1);}
+      }
+      .hero-content {
+        max-width: 700px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2.2rem;
+        position: relative;
+        z-index: 2;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeUp 1.1s cubic-bezier(.4,0,.2,1) 0.3s forwards;
+      }
+      @keyframes fadeUp {
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      .hero-title {
+        font-family: 'Poppins', Arial, sans-serif;
+        font-size: 3.2rem;
+        font-weight: 800;
+        margin: 0;
+        color: var(--blue);
+        letter-spacing: -0.01em;
+        line-height: 1.1;
+        background: linear-gradient(90deg, #01214b 60%, #ffd966 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+        filter: drop-shadow(0 2px 12px #ffd96622);
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeUp 1.1s cubic-bezier(.4,0,.2,1) 0.5s forwards;
+      }
+      .hero-subtitle {
+        font-family: 'Montserrat', Arial, sans-serif;
+        font-size: 1.5rem;
+        color: #222;
+        font-weight: 400;
+        margin-bottom: 1.5rem;
+        margin-top: 0.2rem;
+        max-width: 500px;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeUp 1.1s cubic-bezier(.4,0,.2,1) 0.7s forwards;
+      }
+      .hero-btns {
+        display: flex;
+        gap: 1.2rem;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeUp 1.1s cubic-bezier(.4,0,.2,1) 0.9s forwards;
+        width: 100%;
+        flex-wrap: wrap;
+      }
+      /* WHAT WE DO */
+      section.section-modern {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 4.5rem 1.2rem 3.5rem 1.2rem;
+        position: relative;
+        z-index: 2;
+      }
+      .section-title {
+        font-family: 'Poppins', Arial, sans-serif;
+        font-size: 2.3rem;
+        font-weight: 800;
+        margin-bottom: 2.2rem;
+        color: var(--blue);
+        letter-spacing: -0.01em;
+        text-align: center;
+        background: linear-gradient(90deg, #01214b 60%, #ffd966 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+        filter: drop-shadow(0 2px 12px #ffd96622);
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeUp 1.1s cubic-bezier(.4,0,.2,1) 0.2s forwards;
+      }
+      .what-we-do-modern {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, auto);
+        gap: 2.2rem;
+        margin-top: 2.5rem;
+        justify-items: center;
+        align-items: center;
+      }
+      .card-modern {
+        background: #fff;
+        border-radius: 22px;
+        box-shadow: 0 8px 32px 0 #01214b0d, 0 1.5px 8px 0 #ffd96622;
+        border: 1.5px solid #e5e7ef;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 210px;
+        padding: 2.2rem 1.7rem 1.7rem 1.7rem;
+        position: relative;
+        overflow: hidden;
+        transition: box-shadow 0.22s, transform 0.22s;
+        opacity: 0;
+        transform: translateY(30px) scale(0.98);
+        animation: fadeUpCard 1.1s cubic-bezier(.4,0,.2,1) both;
+        text-align: center;
+      }
+      .card-modern:nth-child(1) { animation-delay: 0.2s; grid-row: 1; grid-column: 1; }
+      .card-modern:nth-child(2) { animation-delay: 0.35s; grid-row: 1; grid-column: 2; }
+      .card-modern:nth-child(3) { animation-delay: 0.5s; grid-row: 1; grid-column: 3; }
+      .card-modern:nth-child(4) { animation-delay: 0.65s; grid-row: 2; grid-column: 1; }
+      .card-modern:nth-child(5) { animation-delay: 0.8s; grid-row: 2; grid-column: 2; }
+      .card-modern:nth-child(6) { animation-delay: 0.95s; grid-row: 2; grid-column: 3; }
+      @keyframes fadeUpCard {
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      .card-modern:hover {
+        box-shadow: 0 12px 48px 0 #ffd96633, 0 2px 16px 0 #01214b22;
+        transform: translateY(-6px) scale(1.03);
+      }
+      .card-icon-modern {
+        font-size: 2.5rem;
+        color: var(--yellow-strong);
+        margin-bottom: 1.1rem;
+        filter: drop-shadow(0 2px 8px #ffd96655);
+        transition: transform 0.2s;
+        text-shadow: 0 2px 8px #01214b99, 0 1px 2px #fff, 0 0 2px #ffb20055;
+      }
+      .card-modern:hover .card-icon-modern {
+        transform: scale(1.12) rotate(-6deg);
+      }
+      .card-title-modern {
+        font-family: 'Poppins', Arial, sans-serif;
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: var(--blue);
+        letter-spacing: -0.01em;
+      }
+      .card-desc-modern {
+        color: #444;
+        font-size: 1.08rem;
+        font-family: 'Montserrat', Arial, sans-serif;
+        font-weight: 400;
+        margin-bottom: 0.2rem;
+      }
+      /* PROCESS MODERN */
+      .process-modern {
+        width: 100%;
+        background: linear-gradient(120deg, #f7f8fa 60%, #ffd96611 100%);
+        padding: 5rem 0 5rem 0;
+        position: relative;
+        overflow: hidden;
+      }
+      .process-modern-bg {
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        pointer-events: none;
+        z-index: 0;
+      }
+      .process-modern .section-title {
+        margin-bottom: 3.2rem;
+      }
+      .process-steps-modern {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2.5rem;
+        max-width: 1100px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+      }
+      .process-step-modern {
+        background: #fff;
+        border-radius: 20px;
+        box-shadow: 0 8px 32px 0 #01214b0d, 0 1.5px 8px 0 #ffd96622;
+        border: 1.5px solid #e5e7ef;
+        min-width: 260px;
+        max-width: 320px;
+        flex: 1 1 260px;
+        padding: 2.2rem 1.5rem 1.7rem 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+        opacity: 0;
+        transform: translateY(30px) scale(0.98);
+        animation: fadeUpCard 1.1s cubic-bezier(.4,0,.2,1) both;
+      }
+      .process-step-modern:nth-child(1) { animation-delay: 0.2s; }
+      .process-step-modern:nth-child(2) { animation-delay: 0.35s; }
+      .process-step-modern:nth-child(3) { animation-delay: 0.5s; }
+      .process-step-modern:nth-child(4) { animation-delay: 0.65s; }
+      .process-step-modern:nth-child(5) { animation-delay: 0.8s; }
+      .process-step-modern:nth-child(6) { animation-delay: 0.95s; }
+      .process-step-number {
+        width: 44px;
+        height: 44px;
+        background: var(--yellow-strong);
+        color: var(--blue) !important;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Poppins', Arial, sans-serif;
+        font-weight: 700;
+        font-size: 1.3rem;
+        box-shadow: 0 2px 8px 0 #ffd96633;
+        margin-bottom: 1.1rem;
+        border: 2.5px solid #fffbe6;
+        transition: transform 0.2s;
+        text-shadow: none !important;
+      }
+      .process-step-modern:hover .process-step-number {
+        transform: scale(1.08) rotate(6deg);
+      }
+      .process-step-title {
+        font-family: 'Poppins', Arial, sans-serif;
+        font-size: 1.18rem;
+        font-weight: 700;
+        color: var(--blue);
+        margin-bottom: 0.3rem;
+        display: block;
+        width: 100%;
+      }
+      /* .process-step-duration is above */
+      .process-step-desc {
+        font-size: 1.05rem;
+        color: #444;
+        font-family: 'Montserrat', Arial, sans-serif;
+        margin-top: 0.5rem;
+      }
+      /* TRACK RECORD MODERN - OVERRIDE FOR MOBILE */
+      .track-record-modern {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2.2rem;
+        margin-top: 2.5rem;
+        justify-items: center;
+        align-items: center;
+      }
+      .track-card-modern {
+        background: #fff;
+        border-radius: 20px;
+        box-shadow: 0 8px 32px 0 #01214b0d, 0 1.5px 8px 0 #ffd96622;
+        border: 1.5px solid #e5e7ef;
+        padding: 1.7rem 1.3rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 120px;
+        opacity: 0;
+        transform: translateY(30px) scale(0.98);
+        animation: fadeUpCard 1.1s cubic-bezier(.4,0,.2,1) both;
+        text-align: center;
+        max-width: 320px;
+        margin: 0 auto;
+      }
+      .track-card-modern:nth-child(1) { animation-delay: 0.2s; }
+      .track-card-modern:nth-child(2) { animation-delay: 0.35s; }
+      .track-card-modern:nth-child(3) { animation-delay: 0.5s; }
+      .track-card-modern:nth-child(4) { animation-delay: 0.65s; }
+      .track-card-modern:nth-child(5) { animation-delay: 0.8s; }
+      .track-title-modern {
+        font-family: 'Poppins', Arial, sans-serif;
+        font-size: 1.13rem;
+        font-weight: 700;
+        color: var(--blue);
+        margin-bottom: 0.4rem;
+      }
+      .track-metric-modern {
+        font-size: 1.35rem;
+        font-weight: 800;
+        color: var(--blue) !important;
+        margin-bottom: 0.2rem;
+        text-shadow: none !important;
+      }
+      .track-desc-modern {
+        font-size: 1.05rem;
+        color: #444;
+        font-family: 'Montserrat', Arial, sans-serif;
+      }
+      /* TEAM MODERN */
+      .team-modern-section {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 4.5rem 1.2rem 3.5rem 1.2rem;
+        position: relative;
+        z-index: 2;
+      }
+      .team-modern-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, auto);
+        gap: 2.2rem;
+        margin-top: 2.5rem;
+        justify-items: center;
+        align-items: center;
+      }
+      .team-card-modern {
+        background: #fff;
+        border-radius: 20px;
+        box-shadow: 0 8px 32px 0 #01214b0d, 0 1.5px 8px 0 #ffd96622;
+        border: 1.5px solid #e5e7ef;
+        padding: 1.7rem 1.3rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 220px;
+        opacity: 0;
+        transform: translateY(30px) scale(0.98);
+        animation: fadeUpCard 1.1s cubic-bezier(.4,0,.2,1) both;
+        text-align: center;
+      }
+      .team-photo-modern {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 1rem;
+        box-shadow: 0 2px 12px #01214b22;
+        border: 2px solid #e5e7ef;
+        background: #fff;
+        display: block;
+        object-position: center;
+      }
+      .team-name-modern {
+        font-family: 'Poppins', Arial, sans-serif;
+        font-size: 1.13rem;
+        font-weight: 700;
+        color: var(--blue);
+        margin-bottom: 0.2rem;
+      }
+      .team-title-modern {
+        font-size: 1.05rem;
+        color: var(--blue) !important;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        text-shadow: none !important;
+      }
+      .team-bio-modern {
+        font-size: 1.05rem;
+        color: #444;
+        font-family: 'Montserrat', Arial, sans-serif;
+      }
+      /* CONTACT MODERN */
+      .contact-modern-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: #fff;
+        border-radius: 20px;
+        box-shadow: 0 8px 32px 0 #01214b0d, 0 1.5px 8px 0 #ffd96622;
+        border: 1.5px solid #e5e7ef;
+        padding: 3rem 2.5rem;
+        max-width: 750px;
+        margin: 0 auto;
+        opacity: 0;
+        transform: translateY(30px) scale(0.98);
+        animation: fadeUpCard 1.1s cubic-bezier(.4,0,.2,1) 0.2s both;
+      }
+      .contact-info-modern {
+        margin-top: 1.5rem;
+        text-align: center;
+        color: var(--blue);
+        font-size: 1.08rem;
+      }
+      .contact-info-modern a {
+        color: #0074D4 !important;
+        text-decoration: underline;
+        font-weight: 700;
+        text-shadow: none !important;
+      }
+      /* FOOTER MODERN */
+      footer {
+        background: var(--footer-bg);
+        color: var(--white);
+        font-size: 1rem;
+        padding: 3rem 0 2rem 0;
+        font-family: 'Montserrat', Arial, sans-serif;
+        border-top: 1px solid var(--footer-border);
+      }
+      .footer-container {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2.5rem;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+      .footer-col {
+        flex: 1 1 320px;
+        min-width: 280px;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .footer-btns {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+      /* --- MODERN FOOTER BUTTONS --- */
+      .footer-btn {
+        display: flex;
+        align-items: center;
+        gap: 0.8em;
+        background: linear-gradient(90deg, #0074D4 0%, #00c6fb 100%);
+        color: #fff;
+        border: none;
+        border-radius: 14px;
+        font-weight: 700;
+        font-size: 1.13rem;
+        font-family: 'Poppins', Arial, sans-serif;
+        text-decoration: none;
+        padding: 1em 1.5em;
+        transition: background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.18s;
+        box-shadow: 0 4px 24px 0 #0074d433, 0 1.5px 8px 0 #00c6fb33;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        letter-spacing: 0.01em;
+        justify-content: flex-start;
+      }
+      .footer-btn img {
+        width: 1.3em;
+        height: 1.3em;
+        vertical-align: middle;
+        filter: none;
+        margin-right: 0.2em;
+        background: none;
+        border-radius: 0;
+        box-shadow: none;
+      }
+      .footer-btn:hover, .footer-btn:focus {
+        background: linear-gradient(90deg, #005fa3 0%, #00a6d6 100%);
+        color: #fff;
+        text-decoration: none;
+        box-shadow: 0 8px 32px 0 #0074d433;
+        transform: translateY(-2px) scale(1.03);
+      }
+      .footer-btn:active {
+        transform: scale(0.98);
+      }
+      .footer-info {
+        color: var(--muted);
+        font-size: 1rem;
+        line-height: 1.7;
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+      }
+      /* --- MODIFIED: Footer email and phone white --- */
+      .footer-info .footer-email,
+      .footer-info .footer-phone {
+        color: #fff !important;
+        text-decoration: none !important;
+        font-weight: 600;
+        transition: color 0.18s;
+        cursor: pointer;
+        display: inline-block;
+        text-shadow: none !important;
+      }
+      .footer-info .footer-email:hover,
+      .footer-info .footer-phone:hover {
+        color: var(--yellow);
+        text-decoration: none;
+      }
+      .footer-info .footer-address {
+        color: var(--muted);
+        font-weight: 400;
+        font-size: 1rem;
+        margin-top: 0.2rem;
+      }
+      .footer-copyright {
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.95rem;
+        margin-top: 2.5rem;
+      }
+      /* MOBILE OPTIMIZATION */
+      @media (max-width: 1100px) {
+        .what-we-do-modern, .track-record-modern, .team-modern-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .process-steps-modern {
+          flex-direction: column;
+          align-items: center;
+        }
+        .footer-container {
+          flex-direction: column;
+          gap: 2rem;
+        }
+        .team-modern-grid {
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: repeat(4, auto);
+        }
+      }
+      @media (max-width: 900px) {
+        .nav {
+          flex-direction: row;
+          gap: 0.7rem;
+          padding: 0.7rem 0.7rem;
+          justify-content: space-between;
+          align-items: center;
+        }
+        .logo {
+          justify-content: flex-start;
+        }
+        .hamburger {
+          order: 2;
+        }
+        nav {
+          order: 3;
+        }
+        .footer-container {
+          flex-direction: column;
+          gap: 2rem;
+        }
+      }
+      @media (max-width: 700px) {
+        .nav {
+          flex-direction: row;
+          gap: 0.7rem;
+          padding: 0.7rem 0.7rem;
+          justify-content: space-between;
+          align-items: center;
+        }
+        .logo {
+          justify-content: flex-start;
+        }
+        .hamburger {
+          order: 2;
+        }
+        nav {
+          order: 3;
+        }
+        .hero {
+          flex-direction: column;
+          padding: 2.5rem 0.7rem 2rem 0.7rem;
+          min-height: unset;
+        }
+        .hero-content {
+          max-width: 100%;
+          gap: 1.2rem;
+          align-items: center;
+        }
+        .hero-title {
+          font-size: 1.7rem;
+          text-align: center;
+          width: 100%;
+        }
+        .hero-subtitle {
+          font-size: 1.05rem;
+          text-align: center;
+          width: 100%;
+        }
+        .hero-btns {
+          flex-direction: column;
+          gap: 0.7rem;
+          width: 100%;
+          align-items: center;
+        }
+        .cta-btn, .contact-btn {
+          width: 100%;
+          margin-right: 0;
+          font-size: 1rem;
+          padding: 0.9rem 0;
+        }
+        .section-title {
+          font-size: 1.2rem;
+        }
+        .footer-container {
+          flex-direction: column;
+          gap: 2rem;
+          align-items: center;
+        }
+        .footer-col {
+          align-items: center;
+        }
+        .footer-btns {
+          flex-direction: column;
+          align-items: center;
+        }
+        .footer-btn {
+          justify-content: center;
+        }
+        .footer-info {
+          align-items: center;
+          text-align: center;
+        }
+        .what-we-do-modern {
+          grid-template-columns: 1fr !important;
+          grid-template-rows: none !important;
+        }
+        .card-modern {
+          padding: 1.2rem 0.7rem;
+        }
+        .track-record-modern {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 1.5rem;
+          margin-top: 2.5rem;
+        }
+        .track-card-modern {
+          max-width: 340px;
+          width: 100%;
+          margin: 0 auto;
+          align-items: center;
+          text-align: center;
+        }
+        .process-steps-modern {
+          flex-direction: column;
+          align-items: center;
+        }
+        .contact-modern-section {
+          padding: 1.2rem 0.2rem;
+          max-width: 98vw;
+        }
+        .contact-modern-section > div[data-tf-live] {
+          width: 100% !important;
+          min-width: 0 !important;
+          max-width: 100vw !important;
+        }
+        .team-modern-grid {
+          grid-template-columns: 1fr;
+          grid-template-rows: none;
+        }
+        /* Remove grid-row/grid-column for .card-modern on mobile */
+        .card-modern {
+          grid-row: auto !important;
+          grid-column: auto !important;
+        }
+      }
+      @media (max-width: 480px) {
+        .hero-title {
+          font-size: 1.2rem;
+        }
+        .section-title {
+          font-size: 1rem;
+        }
+        .cta-btn, .contact-btn {
+          font-size: 0.95rem;
+          padding: 0.8rem 0;
+        }
+        .footer-container {
+          gap: 1rem;
+        }
+        .team-photo-modern {
+          width: 60px;
+          height: 60px;
+        }
+        /* Extra: Make nav links bigger and easier to tap */
+        nav a {
+          font-size: 1rem;
+          padding: 0.8rem 0.7rem;
+        }
+        .footer-btn {
+          font-size: 1rem;
+          padding: 0.8em 1em;
+        }
+      }
+      /* Extra: Hamburger menu for mobile */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        cursor: pointer;
+        margin-left: 0.5rem;
+        z-index: 100;
+      }
+      .hamburger span {
+        height: 4px;
+        width: 100%;
+        background: var(--yellow);
+        margin: 4px 0;
+        border-radius: 2px;
+        transition: 0.3s;
+        display: block;
+      }
+      @media (max-width: 900px) {
+        nav {
+          display: none;
+          flex-direction: column;
+          gap: 0.5rem;
+          background: var(--blue-dark);
+          position: absolute;
+          top: 60px;
+          right: 0;
+          left: 0;
+          z-index: 99;
+          padding: 1rem 0;
+        }
+        nav.open {
+          display: flex;
+        }
+        .hamburger {
+          display: flex;
+        }
+        .nav {
+          position: relative;
+        }
+      }
+
+      @media (min-width: 768px) {
+  .contact-modern-section > div[data-tf-live] {
+    width: 100% !important;
+    max-width: 700px !important; /* Adjust width as needed */
+    margin: 0 auto;
+  }
+}
+
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="nav" role="navigation" aria-label="Main navigation">
+        <a href="#" class="logo" aria-label="Adornier Home">Adornier</a>
+        <div class="hamburger" id="hamburger" aria-label="Open navigation" tabindex="0">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <nav id="mainNav">
+          <a href="#whatwedo">What We Do</a>
+          <a href="#process">Our Process</a>
+          <a href="#trackrecord">Track Record</a>
+          <a href="#team">Team</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+    <!-- Removed Typeform at the top -->
+    <main>
+      <!-- HERO -->
+      <section class="hero" id="hero" aria-label="Hero">
+        <div class="hero-bg-blur"></div>
+        <div class="hero-content">
+          <h1 class="hero-title">Startup Fundraising. Simplified.</h1>
+          <div class="hero-subtitle">From Pre-Seed to Series A — We've Got You.</div>
+          <div class="hero-btns">
+            <button class="cta-btn" onclick="scrollToContact()" aria-label="Explore fundraising options">Explore fundraising options</button>
+            <button class="contact-btn" onclick="scrollToFooter()" aria-label="Contact Us">Contact Us</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHAT WE DO -->
+      <section id="whatwedo" class="section-modern" aria-labelledby="whatwedo-title">
+        <h2 class="section-title" id="whatwedo-title">What We Do</h2>
+        <div class="what-we-do-modern">
+          <div class="card-modern">
+            <div class="card-icon-modern">💡</div>
+            <div class="card-title-modern">Fundraising Strategy</div>
+            <div class="card-desc-modern">Tailored plans to help you raise the right round, at the right time, with the right investors.</div>
+          </div>
+          <div class="card-modern">
+            <div class="card-icon-modern">🚀</div>
+            <div class="card-title-modern">Business Development</div>
+            <div class="card-desc-modern">Structuring your company for growth and investor readiness, from operations to go-to-market.</div>
+          </div>
+          <div class="card-modern">
+            <div class="card-icon-modern">📝</div>
+            <div class="card-title-modern">Pitch Deck Crafting & Coaching</div>
+            <div class="card-desc-modern">We design, refine, and coach you on a compelling, investor-ready pitch deck and narrative.</div>
+          </div>
+          <div class="card-modern">
+            <div class="card-icon-modern">🤝</div>
+            <div class="card-title-modern">Investor Outreach & Meeting Scheduling</div>
+            <div class="card-desc-modern">We connect you with the right investors in the US and Europe, and schedule meetings for you.</div>
+          </div>
+          <div class="card-modern">
+            <div class="card-icon-modern">📑</div>
+            <div class="card-title-modern">Deal Negotiation & Legal Compliance</div>
+            <div class="card-desc-modern">Guidance on negotiating offers, reviewing term sheets, and ensuring legal compliance.</div>
+          </div>
+          <div class="card-modern">
+            <div class="card-icon-modern">🧠</div>
+            <div class="card-title-modern">Financial Modeling & Valuation</div>
+            <div class="card-desc-modern">Robust models and clear valuations to support your raise and instill investor confidence.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- OUR PROCESS -->
+      <section id="process" class="process-modern" aria-labelledby="process-title">
+        <div class="process-modern-bg"></div>
+        <h2 class="section-title" id="process-title" style="white-space: pre-line; text-align: center;">
+          Our Process:
+          Fundraising Roadmap
+        </h2>
+        <div class="process-steps-modern">
+          <div class="process-step-modern">
+            <div class="process-step-number">1</div>
+            <div class="process-step-title">Discovery Call</div>
+            <span class="process-step-duration">(1 hour)</span>
+            <div class="process-step-desc">We get to know your business, goals, and fundraising needs.</div>
+          </div>
+          <div class="process-step-modern">
+            <div class="process-step-number">2</div>
+            <div class="process-step-title">Strategic Planning</div>
+            <span class="process-step-duration">(1–2 weeks)</span>
+            <div class="process-step-desc">We map your fundraising strategy, target investors, and company structure.</div>
+          </div>
+          <div class="process-step-modern">
+            <div class="process-step-number">3</div>
+            <div class="process-step-title">Pitch Deck & Training</div>
+            <span class="process-step-duration">(1–3 weeks)</span>
+            <div class="process-step-desc">We craft your deck and coach you for investor meetings.</div>
+          </div>
+          <div class="process-step-modern">
+            <div class="process-step-number">4</div>
+            <div class="process-step-title">Investor Outreach</div>
+            <span class="process-step-duration">(2–8 weeks)</span>
+            <div class="process-step-desc">We introduce you to relevant investors and schedule meetings.</div>
+          </div>
+          <div class="process-step-modern">
+            <div class="process-step-number">5</div>
+            <div class="process-step-title">Deal Negotiation</div>
+            <span class="process-step-duration">(1–4 weeks)</span>
+            <div class="process-step-desc">We help you negotiate terms and offers with investors.</div>
+          </div>
+          <div class="process-step-modern">
+            <div class="process-step-number">6</div>
+            <div class="process-step-title">Legal Review & Closing</div>
+            <span class="process-step-duration">(1–2 weeks)</span>
+            <div class="process-step-desc">We support you through legal review and closing the round.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TRACK RECORD -->
+      <section id="trackrecord" class="track-modern-section" aria-labelledby="track-title">
+        <h2 class="section-title" id="track-title">Track Record</h2>
+        <div class="track-record-modern">
+          <div class="track-card-modern">
+            <div class="track-title-modern">Lynergie 🇫🇷</div>
+            <div class="track-metric-modern">+300k€ EBITDA</div>
+            <div class="track-desc-modern">+9.5% margin, +4 hires, CAC ÷1.7</div>
+          </div>
+          <div class="track-card-modern">
+            <div class="track-title-modern">MyDrop AI 🇺🇸</div>
+            <div class="track-metric-modern">+705% MRR</div>
+            <div class="track-desc-modern">+600 users, +1 hire, Pre-Seed raised</div>
+          </div>
+          <div class="track-card-modern">
+            <div class="track-title-modern">TOPE-LA 🇫🇷</div>
+            <div class="track-metric-modern">MVP & 400 Users</div>
+            <div class="track-desc-modern">Pre-Seed & Seed raised</div>
+          </div>
+          <div class="track-card-modern">
+            <div class="track-title-modern">Omelio 🇨🇭</div>
+            <div class="track-metric-modern">100k€ Revenue</div>
+            <div class="track-desc-modern">+1 hire, Pre-Seed & Seed raised</div>
+          </div>
+          <div class="track-card-modern">
+            <div class="track-title-modern">Eckerd College 🇺🇸</div>
+            <div class="track-metric-modern">–23.5% CAC</div>
+            <div class="track-desc-modern">1 new channel, +3 hires, Series A raised</div>
+          </div>
+          <div class="track-card-modern">
+            <div class="track-title-modern">Agendac 🇨🇭</div>
+            <div class="track-metric-modern">+19 High-Ticket Clients</div>
+            <div class="track-desc-modern">–45% CAC, +2 hires</div>
+          </div>
+        </div>
+      </section>
+  
+
+      <!-- TEAM -->
+      <section id="team" class="team-modern-section" aria-labelledby="team-title">
+        <h2 class="section-title" id="team-title">Meet the Team</h2>
+        <div class="team-modern-grid">
+          <div class="team-card-modern">
+            <a href="https://storage.googleapis.com/msgsndr/6T9QbKNEAN2JcTQX3ScY/media/685a2ccd3daa6b62d82d6a00.png" target="_blank" rel="noopener">
+              <img class="team-photo-modern" src="https://storage.googleapis.com/msgsndr/6T9QbKNEAN2JcTQX3ScY/media/685a2ccd3daa6b62d82d6a00.png" alt="Arnaud Utille photo">
+            </a>
+            <div class="team-name-modern">Arnaud Utille</div>
+            <div class="team-title-modern">CEO – Business Development</div>
+            <div class="team-bio-modern">Serial entrepreneur and fundraising advisor. Arnaud leads business development and client strategy, leveraging a global network of investors and founders.</div>
+          </div>
+          <div class="team-card-modern">
+            <a href="https://storage.googleapis.com/msgsndr/6T9QbKNEAN2JcTQX3ScY/media/685a2ccd3daa6b53502d6a01.png" target="_blank" rel="noopener">
+              <img class="team-photo-modern" src="https://storage.googleapis.com/msgsndr/6T9QbKNEAN2JcTQX3ScY/media/685a2ccd3daa6b53502d6a01.png" alt="Kerim Jakupovic photo">
+            </a>
+            <div class="team-name-modern">Kerim Jakupovic</div>
+            <div class="team-title-modern">COO – Fundraising</div>
+            <div class="team-bio-modern">Expert in startup fundraising and operations. Kerim manages fundraising processes and ensures seamless execution for clients.</div>
+          </div>
+          <div class="team-card-modern">
+            <a href="https://storage.googleapis.com/msgsndr/6T9QbKNEAN2JcTQX3ScY/media/685a2ccd4260526e19182fa2.png" target="_blank" rel="noopener">
+              <img class="team-photo-modern" src="https://storage.googleapis.com/msgsndr/6T9QbKNEAN2JcTQX3ScY/media/685a2ccd4260526e19182fa2.png" alt="Aurélie Utille photo">
+            </a>
+            <div class="team-name-modern">Aurélie Utille</div>
+            <div class="team-title-modern">CLO – Legal</div>
+            <div class="team-bio-modern">Corporate lawyer with deep expertise in startup law, compliance, and deal structuring. Aurélie oversees all legal aspects of fundraising.</div>
+          </div>
+          <div class="team-card-modern">
+            <a href="https://storage.googleapis.com/msgsndr/6T9QbKNEAN2JcTQX3ScY/media/685a2ccd3daa6b21da2d6a02.png" target="_blank" rel="noopener">
+              <img class="team-photo-modern" src="https://storage.googleapis.com/msgsndr/6T9QbKNEAN2JcTQX3ScY/media/685a2ccd3daa6b21da2d6a02.png" alt="Gary Cornell photo">
+            </a>
+            <div class="team-name-modern">Gary Cornell</div>
+            <div class="team-title-modern">CFO – M&A</div>
+            <div class="team-bio-modern">Seasoned CFO and M&A specialist. Gary brings decades of experience in financial strategy, due diligence, and exits.</div>
+          </div>
+          <div class="team-card-modern">
+            <a href="https://storage.googleapis.com/msgsndr/6T9QbKNEAN2JcTQX3ScY/media/685a2ccdc58356e67e8e031b.png" target="_blank" rel="noopener">
+              <img class="team-photo-modern" src="https://storage.googleapis.com/msgsndr/6T9QbKNEAN2JcTQX3ScY/media/685a2ccdc58356e67e8e031b.png" alt="Fabien photo">
+            </a>
+            <div class="team-name-modern">Fabien</div>
+            <div class="team-title-modern">Venture Partner</div>
+            <div class="team-bio-modern">Venture capital expert, supporting deal flow and investor relations.</div>
+          </div>
+          <div class="team-card-modern">
+            <a href="https://storage.googleapis.com/msgsndr/6T9QbKNEAN2JcTQX3ScY/media/685a2ccd3daa6b60752d69ff.png" target="_blank" rel="noopener">
+              <img class="team-photo-modern" src="https://storage.googleapis.com/msgsndr/6T9QbKNEAN2JcTQX3ScY/media/685a2ccd3daa6b60752d69ff.png" alt="Mauro Martinez photo">
+            </a>
+            <div class="team-name-modern">Mauro Martinez</div>
+            <div class="team-title-modern">Legal Counsel</div>
+            <div class="team-bio-modern">Assists with international legal compliance and cross-border fundraising.</div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- CONTACT -->
+      <section id="contact" class="section-modern" aria-labelledby="contact-title">
+        <h2 class="section-title" id="contact-title">Contact</h2>
+        <div class="contact-modern-section">
+          <!-- Typeform code added here -->
+          <div data-tf-live="01JBXQM052GFHA67TSEMJRQ1DY"></div>
+          <script src="https://embed.typeform.com/next/embed.js"></script>
+          <div class="contact-info-modern" aria-label="Contact email">
+            Or email us at <a href="mailto:contact@adornier.net">contact@adornier.net</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer id="footer">
+      <div class="footer-container">
+        <div class="footer-col">
+          <div class="footer-btns">
+            <a class="footer-btn" href="https://calendly.com/arnaudutille/30min" target="_blank" rel="noopener" aria-label="Book a call with CEO">
+              <img src="https://storage.googleapis.com/msgsndr/6T9QbKNEAN2JcTQX3ScY/media/685a3dba0bf945204e15649e.webp" alt="Calendar" /> Book a call with CEO
+            </a>
+            <a class="footer-btn" href="https://wa.me/18176098277" target="_blank" rel="noopener" aria-label="WhatsApp">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" /> WhatsApp
+            </a>
+            <a class="footer-btn" href="https://www.linkedin.com/company/adornier" target="_blank" rel="noopener" aria-label="Adornier on LinkedIn">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" /> LinkedIn
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <div class="footer-info">
+            <div>
+              <a class="footer-email" href="mailto:contact@adornier.net">contact@adornier.net</a>
+            </div>
+            <div>
+              <a class="footer-phone" href="tel:+18176098277">+1 817-609-8277</a>
+            </div>
+            <div class="footer-address">Adornier LLC</div>
+            <div class="footer-address">13200 49th St N<br>33762, CLEARWATER, US</div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        &copy; <span id="year"></span> Adornier. Based in Florida. Working globally.
+      </div>
+    </footer>
+    <script>
+      // Hamburger menu for mobile
+      const hamburger = document.getElementById('hamburger');
+      const mainNav = document.getElementById('mainNav');
+      if (hamburger && mainNav) {
+        hamburger.addEventListener('click', function() {
+          mainNav.classList.toggle('open');
+        });
+        hamburger.addEventListener('keypress', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            mainNav.classList.toggle('open');
+          }
+        });
+        // Close nav when clicking a link (mobile)
+        mainNav.querySelectorAll('a').forEach(function(link) {
+          link.addEventListener('click', function() {
+            if (window.innerWidth <= 900) {
+              mainNav.classList.remove('open');
+            }
+          });
+        });
+      }
+
+      // Smooth scroll for CTA and nav links
+      function scrollToContact() {
+        document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+      }
+      function scrollToFooter() {
+        document.getElementById('footer').scrollIntoView({ behavior: 'smooth' });
+      }
+      document.querySelectorAll('nav a').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+          const href = this.getAttribute('href');
+          if (href && href.startsWith('#')) {
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth' });
+            }
+          }
+        });
+      });
+      // Set current year in footer
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Animate cards on scroll (intersection observer)
+      function animateOnScroll(selector) {
+        var els = document.querySelectorAll(selector);
+        if (!('IntersectionObserver' in window)) {
+          els.forEach(function(el) { el.style.opacity = 1; el.style.transform = 'none'; });
+          return;
+        }
+        var observer = new window.IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.style.animationPlayState = 'running';
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15 });
+        els.forEach(function(el) {
+          el.style.animationPlayState = 'paused';
+          observer.observe(el);
+        });
+      }
+      document.addEventListener('DOMContentLoaded', function() {
+        animateOnScroll('.card-modern');
+        animateOnScroll('.process-step-modern');
+        animateOnScroll('.track-card-modern');
+        animateOnScroll('.team-card-modern');
+        animateOnScroll('.contact-modern-section');
+        // Animate hero content
+        var heroContent = document.querySelector('.hero-content');
+        if (heroContent) {
+          heroContent.style.animationPlayState = 'running';
+        }
+        // Animate section titles
+        document.querySelectorAll('.section-title').forEach(function(el) {
+          el.style.animationPlayState = 'running';
+        });
+      });
+    </script>
+  </body>
+</html>
