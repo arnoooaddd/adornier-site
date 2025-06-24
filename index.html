@@ -1029,36 +1029,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     </style>
 
-<!-- Keep url param when clicking on another page -->
-<script>
-  (function() {
-    // Fonction pour obtenir les paramètres actuels
-    function getQueryParams() {
-      return window.location.search;
-    }
-
-    // Fonction pour ajouter les paramètres à un lien
-    function appendParamsToUrl(url, params) {
-      if (!params || params === '?') return url;
-      // Si l'URL a déjà des paramètres, on ajoute avec &
-      return url.includes('?') ? url + '&' + params.slice(1) : url + params;
-    }
-
-    // Écoute tous les clics sur des liens
-    document.addEventListener('click', function(e) {
-      const target = e.target.closest('a'); // s'assure que c'est un lien <a>
-      if (!target || !target.href || target.href.startsWith('javascript:')) return;
-
-      const currentParams = getQueryParams();
-      const newUrl = appendParamsToUrl(target.href, currentParams);
-
-      // Pour les liens normaux, on redirige manuellement
-      e.preventDefault();
-      window.location.href = newUrl;
-    });
-  })();
-<!-- Keep url param when clicking on another page -->
-
   </head>
   <body>
 
@@ -1406,5 +1376,51 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         });
       });
     </script>
+
+
+
+<script>
+(function() {
+  var currentParams = window.location.search;
+
+  if (!currentParams || currentParams === '?') return;
+
+  document.addEventListener('click', function(event) {
+    var el = event.target;
+
+    // Remonte dans le DOM jusqu'à trouver un <a>
+    while (el && el.tagName !== 'A') {
+      el = el.parentNode;
+    }
+
+    if (!el || !el.href || el.target === '_blank') return;
+
+    var link = document.createElement('a');
+    link.href = el.href;
+
+    // Vérifie que c'est un lien interne
+    var isInternal = link.hostname === window.location.hostname;
+    if (!isInternal) return;
+
+    // Ne rien faire si le lien contient déjà les mêmes paramètres
+    if (link.search && link.search.indexOf(currentParams.substring(1)) !== -1) return;
+
+    // Ne rien faire si le lien pointe vers une ancre de la même page
+    if (link.href.indexOf('#') > -1 && link.pathname === window.location.pathname) return;
+
+    // Empêche le comportement par défaut
+    event.preventDefault();
+
+    // Ajoute les paramètres de l'URL actuelle au lien
+    var finalUrl = el.href;
+    finalUrl += (el.href.indexOf('?') > -1 ? '&' : '?') + currentParams.substring(1);
+
+    window.location.href = finalUrl;
+  });
+})();
+</script>
+
+
+
   </body>
 </html>
