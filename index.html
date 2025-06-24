@@ -1029,48 +1029,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     </style>
 
-<!-- keep url param -->
-<script>
-(function() {
-  var currentParams = window.location.search;
-
-  if (!currentParams || currentParams === '?') return;
-
-  document.addEventListener('click', function(event) {
-    var el = event.target;
-
-    // Remonte dans le DOM jusqu'à trouver un <a>
-    while (el && el.tagName !== 'A') {
-      el = el.parentNode;
-    }
-
-    if (!el || !el.href || el.target === '_blank') return;
-
-    var link = document.createElement('a');
-    link.href = el.href;
-
-    // Vérifie que c'est un lien interne
-    var isInternal = link.hostname === window.location.hostname;
-    if (!isInternal) return;
-
-    // Ne rien faire si le lien contient déjà les mêmes paramètres
-    if (link.search && link.search.indexOf(currentParams.substring(1)) !== -1) return;
-
-    // Ne rien faire si le lien pointe vers une ancre de la même page
-    if (link.href.indexOf('#') > -1 && link.pathname === window.location.pathname) return;
-
-    // Empêche le comportement par défaut
-    event.preventDefault();
-
-    // Ajoute les paramètres de l'URL actuelle au lien
-    var finalUrl = el.href;
-    finalUrl += (el.href.indexOf('?') > -1 ? '&' : '?') + currentParams.substring(1);
-
-    window.location.href = finalUrl;
-  });
-})();
-</script>
-
   </head>
   <body>
 
@@ -1420,6 +1378,46 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </script>
 
 
+<script>
+(function(){
+  var qs = window.location.search.substring(1);
+  if (!qs) return;
+
+  var params = qs.split('&').reduce(function(acc,item){
+    var parts = item.split('=');
+    if (parts.length===2) acc[decodeURIComponent(parts[0])] = decodeURIComponent(parts[1]);
+    return acc;
+  },{});
+
+  var cookieVal = Object.keys(params).map(function(k){
+    return k + '=' + encodeURIComponent(params[k]);
+  }).join('&');
+  document.cookie = 'urlparams=' + cookieVal + '; path=/';
+})();
+</script>
+
+
+<script>
+(function(){
+  function getCookie(name) {
+    var c = document.cookie.match('(^|;)\\s*'+name+'=([^;]+)');
+    return c ? c.pop() : '';
+  }
+  var cookie = getCookie('urlparams');
+  if (!cookie) return;
+
+  var links = document.getElementsByTagName('a');
+  for (var i=0; i<links.length; i++){
+    var el = links[i];
+    var href = el.getAttribute('href');
+    if (!href || href.indexOf('://')>-1 && el.hostname !== location.hostname) continue;
+    if (href.indexOf('#')===0) continue;
+
+    var base = href.split('?')[0];
+    el.href = base + (href.indexOf('?')>-1 ? href.slice(href.indexOf('?')) + '&' : '?') + cookie;
+  }
+})();
+</script>
 
 
 
