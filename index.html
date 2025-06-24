@@ -1028,6 +1028,37 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 
     </style>
+
+<!-- Keep url param when clicking on another page -->
+<script>
+  (function() {
+    // Fonction pour obtenir les paramètres actuels
+    function getQueryParams() {
+      return window.location.search;
+    }
+
+    // Fonction pour ajouter les paramètres à un lien
+    function appendParamsToUrl(url, params) {
+      if (!params || params === '?') return url;
+      // Si l'URL a déjà des paramètres, on ajoute avec &
+      return url.includes('?') ? url + '&' + params.slice(1) : url + params;
+    }
+
+    // Écoute tous les clics sur des liens
+    document.addEventListener('click', function(e) {
+      const target = e.target.closest('a'); // s'assure que c'est un lien <a>
+      if (!target || !target.href || target.href.startsWith('javascript:')) return;
+
+      const currentParams = getQueryParams();
+      const newUrl = appendParamsToUrl(target.href, currentParams);
+
+      // Pour les liens normaux, on redirige manuellement
+      e.preventDefault();
+      window.location.href = newUrl;
+    });
+  })();
+<!-- Keep url param when clicking on another page -->
+
   </head>
   <body>
 
