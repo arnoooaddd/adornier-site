@@ -1396,25 +1396,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 })();
 </script>
 
-
 <script>
 (function(){
   function getCookie(name) {
     var c = document.cookie.match('(^|;)\\s*'+name+'=([^;]+)');
-    return c ? c.pop() : '';
+    return c ? decodeURIComponent(c.pop()) : '';
   }
   var cookie = getCookie('urlparams');
   if (!cookie) return;
 
   var links = document.getElementsByTagName('a');
-  for (var i=0; i<links.length; i++){
+  for (var i = 0; i < links.length; i++) {
     var el = links[i];
     var href = el.getAttribute('href');
-    if (!href || href.indexOf('://')>-1 && el.hostname !== location.hostname) continue;
-    if (href.indexOf('#')===0) continue;
+    if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) continue;
 
-    var base = href.split('?')[0];
-    el.href = base + (href.indexOf('?')>-1 ? href.slice(href.indexOf('?')) + '&' : '?') + cookie;
+    var hasQuery = href.indexOf('?') > -1;
+    var sep = hasQuery ? '&' : '?';
+
+    // Évite d’ajouter deux fois les mêmes paramètres
+    if (href.indexOf(cookie.split('=')[0]) === -1) {
+      el.setAttribute('href', href + sep + cookie);
+    }
   }
 })();
 </script>
